@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var usuariosRouter = require ('./routes/usuarios.routes')
+var publicacionesRouter = require('./routes/publicaciones.routes')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -19,5 +20,6 @@ app.use('/users', usersRouter);
 
 
 app.use('/usuarios',usuariosRouter);
+app.use('/publicaciones', publicacionesRouter);
 
 module.exports = app;

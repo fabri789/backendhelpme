@@ -4,6 +4,9 @@ const express = require ("express");
 
 const router = express.Router();
 
+
+
+// rutas de usuaruios
 router.get( "/",usuarios.getUsuarios );
 
 router.get( "/:id/", usuarios.getUsuariosById );
