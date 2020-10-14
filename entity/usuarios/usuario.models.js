@@ -46,12 +46,23 @@ const crearUsuario = async( usuario ) => {
     }
 }
 
-
+const editarUsuario = async( usuario ) => {
+    try {
+        console.log(usuario);
+        const { nombre, apellido, email, fecha_nacimiento, contrasenia, id_usuario } = usuario;
+        const usuarios = await db.query( 'UPDATE usuarios SET nombre = $1, apellido= $2, email = $3, fecha_nacimiento = $4, contrasenia = $5 WHERE id_usuario = $6', [ nombre, apellido, email, fecha_nacimiento, contrasenia, id_usuario ] );
+        return "USUARIO EDITADO"
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
 
 
 module.exports = {
     traerUsuarios,
     traerUsuarioPorId,
     eliminarUsuarioPorId,
-    crearUsuario
+    crearUsuario,
+    editarUsuario
 }

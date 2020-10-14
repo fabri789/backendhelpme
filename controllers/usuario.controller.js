@@ -54,6 +54,20 @@ const createUsuario = async ( req, res ) => {
     }
 }
 
+const updateUsuario = async ( req, res ) => {
+    try {
+        const usuarioEditado = req.body;
+        const usuario = await usuarios.editarUsuario( usuarioEditado );
+        res.status( 200 ).json( {
+            status : "OK",
+            result: usuario
+        })
+    }
+    catch ( error ) {
+        console.log( error );
+    }
+}
+
 
 
 
@@ -61,5 +75,6 @@ module.exports = {
     getUsuarios,
     getUsuariosById,
     deleteUsuarioById,
-    createUsuario
+    createUsuario,
+    updateUsuario
 }
