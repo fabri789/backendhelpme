@@ -11,7 +11,9 @@ router.get("/", publicaciones.getPublicaciones);
 
 router.get("/:id/", publicaciones.getPublicacionByID);
 
-router.get("/:id",publicaciones.deletePublicacionById );
+router.delete("/:id",publicaciones.deletePublicacionById );
+
+router.post("/",publicaciones.createPublicacion);
 
 
 

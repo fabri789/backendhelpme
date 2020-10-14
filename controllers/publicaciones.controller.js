@@ -31,7 +31,8 @@ const getPublicacionByID = async (req, res) =>{
 
 const deletePublicacionById = async (req, res) =>{
     try{
-        const id = req.param.id;
+        const id = req.params.id;
+        console.log(id);
         const publicacion = await publicaciones.eliminarPublicacionPorId(id);
         res.status(200).json({
             status : 'OK',
@@ -44,9 +45,23 @@ const deletePublicacionById = async (req, res) =>{
     }
 }
 
+const createPublicacion = async (req, res) => {
+    try{
+        const nuevaPublicacion = req.body
+        const publicacion = await publicaciones.crearPublicacion(nuevaPublicacion);
+        res.status(200).json({
+            status : 'OK',
+            result : publicacion
+        })
 
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 module.exports = {
     getPublicaciones,
     getPublicacionByID,
-    deletePublicacionById
+    deletePublicacionById,
+    createPublicacion
 }

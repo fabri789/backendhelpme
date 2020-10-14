@@ -37,7 +37,9 @@ const eliminarPublicacionPorId = async (id) =>{
 const crearPublicacion = async (publicacion) =>{
     try{
         console.log(publicacion);
-        /// DUDA
+        const { titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion } = publicacion;
+        const publicaciones = await db.query('INSERT INTO publicaciones (titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion) VALUES ( $1, $2, $3, $4, $5 )', [titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion]);
+        return "PUBLICACION CREADA";
     }
     catch(e){
         console.log(e);
@@ -50,5 +52,6 @@ const crearPublicacion = async (publicacion) =>{
 module.exports = {
     traerPublicaciones,
     traerPublicacionPorId,
-    eliminarPublicacionPorId
+    eliminarPublicacionPorId,
+    crearPublicacion
 }
