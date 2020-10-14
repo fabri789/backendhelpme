@@ -9,6 +9,9 @@ const router = express.Router();
 
 router.get("/", publicaciones.getPublicaciones);
 
+router.get("/:id/", publicaciones.getPublicacionByID);
+
+router.get("/:id",publicaciones.deletePublicacionById );
 
 
 

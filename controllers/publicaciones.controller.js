@@ -8,6 +8,35 @@ const getPublicaciones = async(req,res) =>{
             status : "OK",
             result : listaPublicaciones,
         })
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+const getPublicacionByID = async (req, res) =>{
+    try{
+        const id = req.params.id;
+        const publicacion = await publicaciones.traerPublicacionPorId(id);
+        res.status(200).json({
+            status : 'OK',
+            result : publicacion
+        })
+
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+const deletePublicacionById = async (req, res) =>{
+    try{
+        const id = req.param.id;
+        const publicacion = await publicaciones.eliminarPublicacionPorId(id);
+        res.status(200).json({
+            status : 'OK',
+            result : publicacion
+        })
 
     }
     catch(error){
@@ -17,5 +46,7 @@ const getPublicaciones = async(req,res) =>{
 
 
 module.exports = {
-    getPublicaciones
+    getPublicaciones,
+    getPublicacionByID,
+    deletePublicacionById
 }
