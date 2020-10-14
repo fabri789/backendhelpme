@@ -6,10 +6,14 @@ const db = require("../../config/database");
 const traerUsuarios = async() => {
     try {
         const usuarios = await db.query('SELECT * FROM usuarios');
-        return usuarios.rows;
+        return { 
+            message: usuarios.rows 
+        };
     }
     catch(e){
-        console.log(e);
+        return {
+            message : 'Error en traerUsuarios'
+        }
     }
 
 }
@@ -17,10 +21,14 @@ const traerUsuarios = async() => {
 const traerUsuarioPorId = async( id ) => {
     try {
         const usuarios = await db.query('SELECT * FROM usuarios WHERE id_usuario = $1', [ id ] );
-        return usuarios.rows;
+        return { 
+            message: usuarios.rows 
+        };
     }
-    catch(error) {
-        console.log(error);
+    catch(e){
+        return {
+            message : 'Error en traerUsuarioPorId'
+        }
     }
 }
 
