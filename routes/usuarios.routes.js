@@ -1,4 +1,4 @@
-const usuarios = require ("../controllers/usuario.controller");
+const usuarios = require ("../components/usuarios/usuario.controller");
 
 const express = require ("express");
 

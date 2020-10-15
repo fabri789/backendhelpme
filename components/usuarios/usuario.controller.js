@@ -1,4 +1,4 @@
-const usuarios = require("../entity/usuarios/usuario.models");
+const usuarios = require("../usuarios/usuario.models");
 
 const getUsuarios = async(req, res) => {
     try {

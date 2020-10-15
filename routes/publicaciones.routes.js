@@ -1,4 +1,4 @@
-const publicaciones = require("../controllers/publicaciones.controller");
+const publicaciones = require("../components/publicaciones/publicaciones.controller");
 
 const express = require ("express");
 

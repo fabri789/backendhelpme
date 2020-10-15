@@ -1,4 +1,4 @@
-const publicaciones = require("../entity/publicaciones/publicaciones.models");
+const publicaciones = require("../publicaciones/publicaciones.models");
 
 
 const getPublicaciones = async(req,res) =>{
