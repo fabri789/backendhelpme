@@ -2,8 +2,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var usuariosRouter = require ('./routes/usuarios.routes')
-var publicacionesRouter = require('./routes/publicaciones.routes')
+var usuariosRouter = require ('./routes/usuarios.routes');
+var publicacionesRouter = require('./routes/publicaciones.routes');
+var organizacionesRouter = require('./routes/organizaciones.routes');
 
 var app = express();
 
@@ -19,5 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Rutas
 app.use('/usuarios',usuariosRouter);
 app.use('/publicaciones', publicacionesRouter);
+app.use('/organizaciones', organizacionesRouter);
 
 module.exports = app;
