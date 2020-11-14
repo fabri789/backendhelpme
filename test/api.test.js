@@ -27,7 +27,7 @@ describe("POST /usuarios/", () =>{
         const usuario = { 
             nombre : 'david', 
             apellido : 'marcolin', 
-            mail : 'marcolindavid@gmail.com', 
+            email : 'marcolindavid@gmail.com', 
             fechaNacimiento : '10/10/10', 
             contrasenia : 'asd123' 
         }
