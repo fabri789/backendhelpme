@@ -54,8 +54,13 @@ const eliminarPublicacionPorId = async (id) =>{
 const crearPublicacion = async (publicacion) =>{
     try{
         console.log(publicacion);
-        const { titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion } = publicacion;
+        const { titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion, imagenes } = publicacion;
+        //imagenes = [ur1, url2, url3]
         const publicaciones = await db.query('INSERT INTO publicaciones (titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion) VALUES ( $1, $2, $3, $4, $5 )', [titulo, fecha_publicacion, fecha_finalizada, descripcion, id_organizacion]);
+        
+        for(i = 0; i < imagenes.length; i++){
+            await db.query('Insert into imagenes(url_imagen, id_publicacion) values ($1, $2)', [imagenes[i], publicaciones.insertId]);
+        }
         return {
             result : 'OK',
             message : 'publicacion creada'
