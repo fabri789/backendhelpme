@@ -6,6 +6,8 @@ var usuariosRouter = require ('./routes/usuarios.routes');
 var publicacionesRouter = require('./routes/publicaciones.routes');
 var organizacionesRouter = require('./routes/organizaciones.routes');
 var authRouter = require('./routes/auth.routes');
+var donacionesRouter = require('./routes/donaciones.routes');
+
 var cors = require('cors');
 
 var app = express();
@@ -25,5 +27,6 @@ app.use('/usuarios',usuariosRouter);
 app.use('/publicaciones', publicacionesRouter);
 app.use('/organizaciones', organizacionesRouter);
 app.use('/auth', authRouter);
+app.use('/donaciones', donacionesRouter);
 
 module.exports = app;

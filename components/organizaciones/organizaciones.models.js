@@ -1,4 +1,3 @@
-const { response } = require("express");
 const db = require("../../config/database");
 
 const traerOrganizaciones = async() => {
