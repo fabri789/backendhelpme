@@ -2,7 +2,7 @@ const db = require("../../config/database");
 
 const traerDonaciones = async () => {
     try{
-        const donaciones = db.query('Select * from donaciones');
+        const donaciones = await db.query('Select * from donaciones',[]);
         return {
             result : 'OK',
             message: donaciones.rows
@@ -17,7 +17,7 @@ const traerDonaciones = async () => {
 
 const traerDonacionesPorId = async (id) => {
     try{
-        const donaciones = db.query('Select * from donaciones where id_donacion = $1', [id]);
+        const donaciones = await db.query('Select * from donaciones where id_donacion = $1', [id]);
         return {
             result : 'OK',
             message: donaciones.rows
