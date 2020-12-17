@@ -17,7 +17,7 @@ const traerDonaciones = async () => {
 
 const traerDonacionesPorId = async (id) => {
     try{
-        const donaciones = await db.query('Select * from donaciones where id_donacion = $1', [id]);
+        const donaciones = await db.query('Select * from donaciones where id_publicacion = $1', [id]);
         return {
             result : 'OK',
             message: donaciones.rows
